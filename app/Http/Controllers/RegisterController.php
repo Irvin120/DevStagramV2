@@ -10,4 +10,19 @@ class RegisterController extends Controller
     {
         return view('auth.register');
     }
+
+    public function store(Request $request)
+    {
+        // dd($request->get('password'));
+        // return true;
+
+        $request->validate(
+            [
+            'name' => ['required', 'min:25'],
+            'username' => ['required', 'min:5'],
+            ]
+        );
+
+        // dd($request->get('name'));
+    }
 }
